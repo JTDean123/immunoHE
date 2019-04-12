@@ -2,15 +2,13 @@
 
 Code to reproduce the work in "Prediction of immunotherapy response correlates from melanoma diagnostic H&E images"
 
+The code required to reproduce figures 3-5 in the manuscript is in the `figures` directory.  
 
-## Collated TCGA data . 
+*Instructions for reproducing all of the work in the manuscript from end to end:*
 
-Collated TMB and immune signature data for TCGA-SKCM samples is found in ```data.tsv``` . 
+#### Collated TCGA data . 
 
-
-
-*Note, RNASeq and H&E slides/patches are not needed to reproduce the figures in the manuscript, however if you would like to start from scratch you can follow the steps below.*
-
+Collated TMB and immune signature data for TCGA-SKCM samples is found in ```data.tsv```.   
 
 #### Download RNASeq data 
 
@@ -37,9 +35,9 @@ Then download the RNASeq data for TCGA-SKCM files as follows:
 ./normalizer.py -s TCGA-3N-A9WB/100_16.jpeg -t NORM.jpeg
 ```
 
-#### Create image-label meta tsv
+#### Create image-label meta tsv file
 
-Next, create a tsv with columns ```sample   path    label```.  See ```images.paths.labels.binary.tsv``` and ```images.paths.labels.immune.binary.tsv``` for the meta tsv used in this work.  
+Next, create a tsv file with columns ```sample     path     label```.  See ```images.paths.labels.binary.tsv``` and ```images.paths.labels.immune.binary.tsv``` for the meta tsv files used in this work.  
 
 #### Feature Extraction
 
@@ -54,13 +52,9 @@ This process takes ~8hours using a GPU and generates two 3Gb npy files.
 
 #### Feature pooling
 
-Pool the features that you just extracted by running-
+Pool the features that you just extracted as follows:
 ```
 ./pooler.sh
 ```
 
-This will create max, average, and p-normed feature vectors for each slide and write them to the `features/` directory.
-
-
-
-
+This will create max, average, and p-normed feature vectors for each slide and write them to the `features/` directory.  The pooled feature vectors used in this work are located in the `features/` directory.
