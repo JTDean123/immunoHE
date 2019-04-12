@@ -79,21 +79,3 @@ if __name__ == '__main__':
     # now put them all together
     make_jobs(downloads, tiling, delete, keep)
     sys.stderr.write('wrote jobs to: jobs.sh\nexiting\n')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
