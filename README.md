@@ -50,6 +50,16 @@ Use inception v3 to extract features from each patch.
 ./feature_extractor.py --samples images.paths.labels.immune.binary.tsv --output features/immune.inceptionv3.features
 ```
 
+This process takes ~8hours using a GPU and generates two 3Gb npy files.  
+
+#### Feature pooling
+
+Pool the features that you just extracted by running-
+```
+./pooler.sh
+```
+
+This will create max, average, and p-normed feature vectors for each slide and write them to the `features/` directory.
 
 
 
