@@ -24,7 +24,7 @@ Then download the RNASeq data for TCGA-SKCM files as follows:
 #### Download diagnostic H&E slides (optional)
 
 1) Navigate to ```images/```  
-2) Run the following to download TCGA-SKCM diagnostic H&E slides, tile, remove the orignal slide, and select min(number of patches, 1000) patches:
+2) Run the following to download TCGA-SKCM diagnostic H&E slides, tile, remove the orignal slides, and select min(number of patches, 1000) patches from each slide:
 ```
 ./make.tiling.job.py -s 512 -m gdc_manifest.2018-11-03.txt
 ./jobs.sh
