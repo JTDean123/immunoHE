@@ -9,7 +9,7 @@ Collated TMB and immune signature data for TCGA-SKCM samples is found in ```data
 
 
 
-*Note, RNASeq and H&E slides are not needed to reproduce the figures in the manuscript, however if you would like to start from scratch you can follow the steps below.
+*Note, RNASeq and H&E slides are not needed to reproduce the figures in the manuscript, however if you would like to start from scratch you can follow the steps below.*
 
 
 #### Download RNASeq data (optional) 
