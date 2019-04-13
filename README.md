@@ -57,23 +57,23 @@ This also creates a tsv, `image.paths.normed.tsv`, that you will need for patch-
 ```
 
 
-
-#### Create image-label meta tsv file
-
-Next, create a tsv file with columns ```sample     path     label```.  See ```images.paths.labels.binary.tsv``` and ```images.paths.labels.immune.binary.tsv``` for the meta tsv files used in this work.  
-
 ## Feature Extraction
 
-Use inception v3 to extract features from each patch.
+1) Assign TMB and immune signature patch labels by creating two tsv files `images.paths.labels.immune.binary.tsv` and `images.paths.labels.tmb.binary.tsv`.
+```
+./add_label.py
+```
+
+2) Use inception v3 to extract features from each patch.
 
 ```
-./feature_extractor.py --samples images.paths.labels.binary.tsv --output features/tmb.inceptionv3.features
+./feature_extractor.py --samples images.paths.labels.tmb.binary.tsv --output features/tmb.inceptionv3.features
 ./feature_extractor.py --samples images.paths.labels.immune.binary.tsv --output features/immune.inceptionv3.features
 ```
 
 This process takes ~8hours using a GPU and generates two 3Gb npy files.  
 
-### Feature pooling
+3) Feature pooling
 
 Pool the features that you just extracted as follows:
 ```

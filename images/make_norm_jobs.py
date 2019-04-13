@@ -59,7 +59,7 @@ def normed_paths(image_paths):
 def make_jobs(image_paths):
     # create a list of jobs for normalization
     jobs = open('norm_jobs.sh', 'w+')
-    jobs.write('!#usr/bin/env bash\n\n')
+    jobs.write('#!/usr/bin/env bash\n\n')
 
     for path in range(image_paths.shape[0]):
         dir_, img_ = image_paths.iloc[path, :]

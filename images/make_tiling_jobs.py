@@ -43,7 +43,7 @@ def keeper_jobs(files, num_keep):
 def make_jobs(downloads, tiling, delete, cleanup):
     # compile all of the jobs
     jobs = open('tile_jobs.sh', 'w+')
-    jobs.write('!#usr/bin/env bash\n\n')
+    jobs.write('#!/usr/bin/env bash\n\n')
 
     for i, j, k, l in zip(downloads, tiling, delete, cleanup):
         jobs.write('{0}\n{1}\n{2}\n{3}\n\n'.format(i, j, k, l))
