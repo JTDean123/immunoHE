@@ -6,11 +6,11 @@ The code required to reproduce figures 3-5 in the manuscript is in the `figures`
 
 *Instructions for reproducing all of the work in the manuscript from end to end:*
 
-#### Collated TCGA data . 
+## Collated TCGA data .
 
 Collated TMB and immune signature data for TCGA-SKCM samples is found in ```data.tsv```.   
 
-#### Download RNASeq data 
+### Download RNASeq data
 
 First, install the GDC data transfer tool:  
 ```https://gdc.cancer.gov/access-data/gdc-data-transfer-tool```  
@@ -21,19 +21,38 @@ Then download the RNASeq data for TCGA-SKCM files as follows:
 ./gdc-client download -m gdc_manifest.2018-10-04.txt
 ```
 
-#### Download diagnostic H&E slides
+### Download and tile diagnostic H&E slides
 
-1) Navigate to ```images/```  
-2) Run the following to download TCGA-SKCM diagnostic H&E slides, tile, remove the orignal slides, and select min(number of patches, 1000) patches from each slide:
+1) Navigate to `images/`
+2) Run the following to create a shell script for image pre-processing:
 ```
-./make.tiling.job.py -s 512 -m gdc_manifest.2018-11-03.txt
-./jobs.sh
+./make_tiling_jobs.py -s 512 -m gdc_manifest.2018-11-03.txt
 ```
 
-3) Normalize the images using ```normalizer.py```.  For example, image ```TCGA-3N-A9WB/100_16.jpeg``` is normalized as follows:  
+This creates a script `tile_jobs.sh` that will coordinate downloading TCGA-SKCM diagnostic H&E slides, tiling, removal of the original slides, and selecting min(number of patches, 1000) patches from each slide.
+
+3) Run this as follows:
+
 ```
-./normalizer.py -s TCGA-3N-A9WB/100_16.jpeg -t NORM.jpeg
+./tile_jobs.sh
 ```
+
+### Normalize the slide patches
+
+1) Navigate to `images/`
+2) Run the following to create a shell script for image patch normalization:
+```
+./make_norm_jobs.py
+```
+
+This creates a script `norm_jobs.sh` that will normalize all of the patches using `NORM.jpeg` as a reference
+
+3) Run this as follows:
+```
+./norm_jobs.sh
+```
+
+
 
 #### Create image-label meta tsv file
 

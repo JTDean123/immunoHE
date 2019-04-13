@@ -42,7 +42,7 @@ def keeper_jobs(files, num_keep):
 
 def make_jobs(downloads, tiling, delete, cleanup):
     # compile all of the jobs
-    jobs = open('jobs.sh', 'w+')
+    jobs = open('tile_jobs.sh', 'w+')
     jobs.write('!#usr/bin/env bash\n\n')
 
     for i, j, k, l in zip(downloads, tiling, delete, cleanup):
@@ -78,4 +78,4 @@ if __name__ == '__main__':
 
     # now put them all together
     make_jobs(downloads, tiling, delete, keep)
-    sys.stderr.write('wrote jobs to: jobs.sh\nexiting\n')
+    sys.stderr.write('wrote jobs to: tile_jobs.sh\nexiting\n')
