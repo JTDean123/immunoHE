@@ -45,7 +45,9 @@ This creates a script `tile_jobs.sh` that will coordinate downloading TCGA-SKCM 
 ./make_norm_jobs.py
 ```
 
-This creates a script `norm_jobs.sh` that will normalize all of the patches using `NORM.jpeg` as a reference
+This creates a script `norm_jobs.sh` that will normalize all of the patches using `NORM.jpeg` as a reference. 
+
+This also creates a tsv, `image.paths.normed.tsv`, that you will need for patch-label assignment.
 
 3) Run this as follows:
 ```

@@ -45,6 +45,17 @@ def get_patch_paths(paths):
     return image_paths
 
 
+def normed_paths(image_paths):
+    # create a df with paths to the normed patches
+    image_paths['path'] = ['{0}_n.jpeg'.format(i.split('.')[0]) for i in image_paths['path']]
+
+    # save
+    image_paths.to_csv('image.paths.normed.tsv', index=False, sep='\t')
+    sys.stderr.write('wrote normalized patch paths: image.paths.normed.tsv\n')
+
+    return
+
+
 def make_jobs(image_paths):
     # create a list of jobs for normalization
     jobs = open('norm_jobs.sh', 'w+')
@@ -58,7 +69,7 @@ def make_jobs(image_paths):
 
     jobs.close()
 
-    sys.stderr.write('wrote jobs to: norm_jobs.sh\nexiting\n')
+    sys.stderr.write('wrote jobs to: norm_jobs.sh\n')
 
     return
 
@@ -73,14 +84,13 @@ def main():
     # create a list of normalization jobs
     make_jobs(image_paths)
 
+    # create a df that contains the new normalized patch paths
+    normed_paths(image_paths)
+
     # cleanup the lists that we created
     cmd = 'rm *lst'
     subprocess.call(cmd, shell=True)
 
 
-
-
 if __name__ == '__main__':
     main()
-
-
