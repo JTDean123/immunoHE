@@ -74,7 +74,7 @@ def immune_labels(data, image_paths, threshold=0.6):
     # save this
     try:
         image_paths.to_csv('images.paths.labels.immune.binary.tsv', sep='\t', index=False)
-        sys.stderr.write('INFO:  patch:tmb label data saved as images.paths.labels.immune.binary.tsv\n')
+        sys.stderr.write('INFO:  patch:immune_signature label data saved as images.paths.labels.immune.binary.tsv\n')
 
     except:
         sys.stderr.write('ERROR:  Unable to write images.paths.labels.immune.binary.tsv\n')
