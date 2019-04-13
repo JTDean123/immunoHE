@@ -6,11 +6,13 @@ The code required to reproduce figures 3-5 in the manuscript is in the `figures`
 
 *Instructions for reproducing all of the work in the manuscript from end to end:*
 
-## Collated TCGA data .
+## Image Processing
+
+### Collated TCGA data
 
 Collated TMB and immune signature data for TCGA-SKCM samples is found in ```data.tsv```.   
 
-### Download RNASeq data
+### Download RNASeq data (optional)
 
 First, install the GDC data transfer tool:  
 ```https://gdc.cancer.gov/access-data/gdc-data-transfer-tool```  
