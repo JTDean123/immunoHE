@@ -1,6 +1,6 @@
 # immunoHE
 
-Code to reproduce the work in "Prediction of immunotherapy response correlates from melanoma diagnostic H&E images"
+Code to reproduce the work in "Prediction of TMB and an immune gene expression signature from melanoma diagnostic H&E images"
 
 The code required to reproduce figures 3-5 in the manuscript is in the `figures` directory.  
 
